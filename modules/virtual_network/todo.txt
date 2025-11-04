@@ -1,0 +1,1 @@
+refactor to allow for multiple resource groups and locations per vnet
