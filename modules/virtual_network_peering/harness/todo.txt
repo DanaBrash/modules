@@ -1,0 +1,1 @@
+maybe grab the vnet ids with data call if not pulling in from other module where we create and peer at once.
