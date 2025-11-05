@@ -6,11 +6,11 @@ resource "azurerm_virtual_network" "vnets" {
   address_space       = each.value.address_space
 
   tags = var.tags
-/*
+
   lifecycle {
     ignore_changes = [tags]
   }
-*/
+  
 }
 
 resource "azurerm_subnet" "subnets" {

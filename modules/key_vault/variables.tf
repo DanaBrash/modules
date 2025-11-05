@@ -54,3 +54,13 @@ variable "domain_name" {
   description = "The domain name for the deployment. (concat for UPN)"
   type        = string
 }
+
+variable "tags" {
+  description = "A map of tags to assign to the resources."
+  type        = map(string)
+  default     = {
+    Environment = "Development"
+    Department  = "Payroll"
+    CostCenter  = "8675309"
+  }
+}

@@ -12,7 +12,6 @@ resource "azurerm_public_ip" "fw_pip" {
   lifecycle {
     ignore_changes = [tags]
   }
-
 }
 
 # firewalls
@@ -39,6 +38,4 @@ resource "azurerm_firewall" "fw" {
   lifecycle {
     ignore_changes = [tags]
   }
-
-
 }

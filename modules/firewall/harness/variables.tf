@@ -1,4 +1,3 @@
-
 variable "location" {
   description = "The Azure region where resources will be created."
   type        = string
@@ -6,9 +5,27 @@ variable "location" {
 }
 
 variable "rgname" {
-  description = "The Azure region where resources will be created."
-  type        = string
-  default     = "rg1"
+  description = "Target resource group"
+  type = string 
+  default = "rg1"
+}
+
+variable "firewalls" {
+  description = "Firewalls to deploy; subnet_name must be AzureFirewallSubnet inside the target vnet"
+  type = map(object({
+    vnet_name   = string
+    subnet_name = string                      # required "AzureFirewallSubnet"
+    pip_name    = string                      # public IP name to create/use
+    sku_tier    = optional(string, "Premium") # Standard or Premium
+  }))
+  default = {
+    fw1 = {
+      vnet_name   = "vnet1"
+      subnet_name = "AzureFirewallSubnet"
+      pip_name    = "pip-fw1"
+      sku_tier    = "Standard"
+    }
+  }
 }
 
 variable "tags" {
@@ -36,3 +53,4 @@ variable "domain_name" {
   description = "The domain name for the deployment."
   type        = string
 }
+
