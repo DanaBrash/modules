@@ -49,8 +49,3 @@ variable "tenant_id" {
   type        = string
 }
 
-variable "domain_name" {
-  description = "The domain name for the deployment."
-  type        = string
-}
-

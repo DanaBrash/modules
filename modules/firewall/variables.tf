@@ -28,21 +28,6 @@ variable "firewalls" {
   }
 }
 
-variable "subscription_id" {
-  description = "The Azure subscription ID."
-  type        = string
-}
-
-variable "tenant_id" {
-  description = "The Azure tenant ID."
-  type        = string
-}
-
-variable "domain_name" {
-  description = "The domain name for the deployment."
-  type        = string
-}
-
 variable "tags" {
   description = "A map of tags to assign to the resources."
   type        = map(string)

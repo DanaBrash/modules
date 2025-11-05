@@ -19,7 +19,6 @@ locals {
     lower(u.user_principal_name) => u.object_id
   }
 
-
   # flatten the vault and uid 
   kv_reader_pairs = flatten([
     for kv_key, kv in azurerm_key_vault.key_vault_1 : [
@@ -40,7 +39,5 @@ kv_contributor_pairs = flatten([
       } if lookup(local.kv_contributor_id_by_upn, lower(upn), null) != null
     ]
   ])
-
-
 
 }
