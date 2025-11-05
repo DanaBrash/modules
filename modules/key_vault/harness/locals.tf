@@ -1,7 +1,4 @@
 locals {
-  rgname   = "kv_mod-rg"
-  location = "westus2"
-  key_vault_name = "kv-mod"
   # make sure whatever you put here exists.  just the name, we concat with the domain in the KV module
   key_vault_readers = [
     # add user principal names as needed

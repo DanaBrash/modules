@@ -34,4 +34,15 @@ Generally speaking your hub will allow transit and not use a remote gateway (it 
 ```
 
 ## requires networks already created.
-Requires that the vnet1 actually has a remote gateway (vng) installed before vnet2 can enable UseRemoteGateway=true
+Requires that one of the vnets actually has a remote gateway (vng) installed before the other can enable UseRemoteGateway=true
+
+#### TODO:
+Getting the vnet IDs could be handled in code where the vnets are called. Perhaps flatten variables in locals, perhaps call directly from main.tf.
+
+remote_virtual_network_id = var.peering_vnets[0].id 
+
+could easily be
+remote_virtual_network_id = data.vnets[0].id
+
+or some such.  
+

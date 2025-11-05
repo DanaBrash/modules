@@ -10,6 +10,13 @@ resource "azurerm_key_vault" "key_vault_1" {
   soft_delete_retention_days  = each.value.soft_delete_retention_days
   purge_protection_enabled    = each.value.purge_protection_enabled
   sku_name                    = each.value.sku_name
+
+  tags = var.tags
+
+  lifecycle {
+    ignore_changes = [tags]
+  }
+
 }
 
 # add users to rbac kv reader role
