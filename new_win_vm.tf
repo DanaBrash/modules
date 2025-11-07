@@ -111,7 +111,6 @@ locals {
     }
   ]
 
-
   # using default is redundant with sample call from main at root, but used for portability
   subnets = [
     # vnet1
@@ -129,7 +128,7 @@ locals {
     # vnet2
     {
       vnet_name        = "vnet2"
-      name             = "AzureFirewallSubnet"
+      name             = "v2_subnet1"
       address_prefixes = ["10.20.0.0/24"]
     },
     {
@@ -144,7 +143,7 @@ locals {
 # Create VNETs and Subnets
 module "vnet" {
   source   = "./modules/virtual_network"
-  rgname   = local.rgname
+  rgname   = azurerm_resource_group.rg["rg1"].name
   location = local.location
   vnets    = local.vnets
   subnets  = local.subnets
