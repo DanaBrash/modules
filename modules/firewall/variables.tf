@@ -6,13 +6,14 @@ variable "location" {
 
 variable "rgname" {
   description = "Target resource group"
-  type = string 
-  default = "rg1"
+  type        = string
+  default     = "rg1"
 }
 
 variable "firewalls" {
   description = "Firewalls to deploy; subnet_name must be AzureFirewallSubnet inside the target vnet"
   type = map(object({
+    vnet_rgname = string
     vnet_name   = string
     subnet_name = string                      # required "AzureFirewallSubnet"
     pip_name    = string                      # public IP name to create/use
@@ -20,6 +21,7 @@ variable "firewalls" {
   }))
   default = {
     fw1 = {
+      vnet_rgname = "vnet1"
       vnet_name   = "vnet1"
       subnet_name = "AzureFirewallSubnet"
       pip_name    = "pip-fw1"
@@ -31,7 +33,7 @@ variable "firewalls" {
 variable "tags" {
   description = "A map of tags to assign to the resources."
   type        = map(string)
-  default     = {
+  default = {
     Environment = "Development"
     Department  = "Payroll"
     CostCenter  = "8675309"
