@@ -6,3 +6,4 @@ module "virtual_machine_windows" {
   vm_config = var.vm_config
   tags      = var.tags
 }
+

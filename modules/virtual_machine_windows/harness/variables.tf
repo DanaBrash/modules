@@ -42,6 +42,28 @@ variable "vm_config" {
       image_sku       = "2019-Datacenter"
       image_version   = "latest"
     }
+    vm2 = {
+      name                         = "vm2"
+      size                         = "Standard_B2ms"
+      admin_username               = "adminuser"
+      admin_password               = "P@ssw0rd1234!"
+      os_disk_caching              = "ReadWrite"
+      os_disk_storage_account_type = "Standard_LRS"
+      vnet_interface = {
+        v_int1 = {
+          name                          = "vnet_interface2"
+          ip_configuration = [{
+            name                          = "ipconfig2"
+            private_ip_address_allocation = "Dynamic"
+          }]
+        }
+      }
+      image_publisher = "MicrosoftWindowsServer"
+      image_offer     = "WindowsServer"
+      image_sku       = "2019-Datacenter"
+      image_version   = "latest"
+    }
+    
   }
 }
 

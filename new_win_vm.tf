@@ -177,6 +177,7 @@ module "virtual_machine_windows" {
 
 
 # can terraform apply -target null_resource.vm_deploy to put a new VM in full context of VNET and FW
+# this is coming up with no changes to the environment even though each piece shows changes
 resource "null_resource" "vm_deploy" {
   depends_on = [module.vnet, module.azurerm_firewall, module.virtual_machine_windows]
 }

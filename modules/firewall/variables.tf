@@ -10,6 +10,19 @@ variable "rgname" {
   default     = "rg1"
 }
 
+variable "vnets_by_name" {
+  description = "Map keyed by VNet name with id, name, and address space."
+  type = map(
+    object({
+      id            = string
+      name          = string
+      address_space = list(string)
+    })
+  )
+}
+
+
+
 variable "firewalls" {
   description = "Firewalls to deploy; subnet_name must be AzureFirewallSubnet inside the target vnet"
   type = map(object({
